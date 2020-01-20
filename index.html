@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!--		<title>reveal.js</title>-->
+		<title>JavaFB</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Robert Szczygielski</h1>
+					</section>
+					<section>
+						<h1>Java basic</h1>
+						<p class="fragment">Fuzz Buzz</p>
+					</section>
+				</section>
+				<section>
+					<p>1, 2, 3, 4, 5, 6, 7, 8, 15</p>
+					<p class="fragment">1, 2, Fizz, 4, Buzz, Fizz, 7, 8, FizzBuzz</p>
+				</section>
+				<section>
+					<img src="img/new_project.png" />
+				</section>
+				<section>
+					<img src="img/untilted.png" />
+				</section>
+				<section>
+					<img src="img/JavaFB.png" />
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					public static void main(String[] args) {
+					}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					public interface Game {
+						List&lt;String&gt; getNumbers(List&lt;Integer&gt; numberList);
+					}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					public class FizzBuzzGame implements Game {
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						@Override
+						public List&lt;String&gt; getNumbers(List&lt;Integer&gt; numberList) {
+							return null;
+						}
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					public class MainGame {
+						public static void main(String[] args) {
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						Game game = new FizzBuzzGame();
+						List&lt;String&gt; numbers = game.getNumbers ( Arrays.asList ( 1, 2, 3, 4, 5, 15));
+
+						System.out.println(numbers);
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						}
+					}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					@Override
+					public List&lt;String&gt; getNumbers(List&lt;Integer&gt; numberList) {
+					</code></pre>
+
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						for (Integer integer : numberList) {
+						}
+					</code></pre>
+
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						return null;
+					}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						for (Integer integer : numberList) {
+					</code></pre>
+						<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+							if (integer % 3 == 0) return "Fizz";
+						</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						}
+						return null;
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						if (integer % 15 == 0) return "FizzBuzz";
+						if (integer % 5 == 0) return "Buzz";
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						for (Integer integer : numberList) {
+							if (integer % 15 == 0) return "FizzBuzz";
+							if (integer % 5 == 0) return "Buzz";
+							if (integer % 3 == 0) return "Fizz";
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+							return String.valueOf(integer);
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						}
+						return null;
+					</code></pre>
+				</section>
+				<section>
+					<h1>Shift + F10</h1>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						public class FizzBuzzGame implements Game {
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						public abstract class FizzBuzzGame implements Game {
+
+							abstract protected String getFor3();
+							abstract protected String getFor5();
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						return "Fuzz" -> return getFor3();
+						return "Buzz" -> return getFor5();
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						if (it % 15 == 0) return getFor3()+getFor5();
+						if (it % 3 == 0) return getFor3();
+						if (it % 5 == 0) return getFor5();
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						public class CustomGame extends FizzBuzzGame {
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+							@Override
+							protected String getFor3() {
+								return "Fuzz";
+							}
+
+							@Override
+							protected String getFor5() {
+								return "Buzz";
+							}
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					public class MainGame {
+						public static void main(String[] args) {
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						Game game = new CustomGame();
+					</code></pre>
+					<pre class="fragment fade-out"><code class="java" data-trim contenteditable style="font-size: 18px;"
+												 data-line-numbers>
+						Game game = new FizzBuzzGame();
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						List&lt;String&gt; numbers = game.getNumbers(Arrays.asList(1, 2, 3, 4, 5, 15));
+
+						System.out.println(numbers);
+						}
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h1>extra</h1>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						public class CustomGame2 extends FizzBuzzGame {
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+							private String for3;
+							private String for5;
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+							public CustomGame2(String for3, String for5) {
+								this.for3 = for3;
+								this.for5 = for5;
+							}
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						@Override
+						protected String getFor3() {
+							return this.for3;
+						}
+
+						@Override
+						protected String getFor5() {
+							return this.for5;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+					public class MainGame {
+						public static void main(String[] args) {
+						Game game = new CustomGame();
+						List&lt;String&gt; numbers = game.getNumbers(Arrays.asList(1, 2, 3, 4, 5, 15));
+
+						System.out.println(numbers);
+					</code></pre>
+					<pre class="fragment"><code class="java" data-trim contenteditable style="font-size: 18px;"
+													data-line-numbers>
+						Game game1 = new CustomGame1();
+						List&lt;String&gt; numbers = game.getNumbers(Arrays.asList(1, 2, 3, 4, 5, 15));
+
+						System.out.println(numbers);
+					</code></pre>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;"
+												data-line-numbers>
+						}
+					}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						Game game1 = new CustomGame1("ala", "kot");
+						List&lt;String&gt; numbers = game.getNumbers(Arrays.asList(1, 2, 3, 4, 5, 15));
+
+						System.out.println(numbers);
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="java" data-trim contenteditable style="font-size: 18px;" data-line-numbers>
+						@Override
+						public List&lt;String&gt; getNumbers(List&lt;Integer&gt; numberList) {
+						return numberList.stream()
+							.map( it -&gt; {
+								if (it % 15 == 0) return getFor3()+getFor5();
+								if (it % 3 == 0) return getFor3();
+								if (it % 5 == 0) return getFor5();
+								return String.valueOf(it);
+							})
+							.collect(Collectors.toList());
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h1>???</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
